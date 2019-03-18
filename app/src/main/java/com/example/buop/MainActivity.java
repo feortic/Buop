@@ -1,5 +1,6 @@
 package com.example.buop;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //defining view objects
     private EditText TextEmail;
     private EditText TextPassword;
-    private Button btnRegistrar, btnLogin;
+    private Button btnRegistrar, btnLogin ,btnCambiarContraseña;
     private ProgressDialog progressDialog;
 
 
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnRegistrar = (Button) findViewById(R.id.botonRegistrar);
         btnLogin = (Button) findViewById(R.id.botonLogin);
+        btnCambiarContraseña = (Button) findViewById(R.id.botonCambiarPass);
 
         progressDialog = new ProgressDialog(this);
 
         //asociamos un oyente al evento clic del bot鏮
+        btnCambiarContraseña.setOnClickListener(this);
         btnRegistrar.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
     }
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Falta ingresar la contrase鎙", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Falta ingresar la contraseña", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -148,6 +151,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    private  void irACambiarContrseña(){
+        Toast.makeText(MainActivity.this, "Yendo a cambiar contraseña: " , Toast.LENGTH_LONG).show();
+        Intent intencion = new Intent(getApplicationContext(), CambiarPassActivity.class);
+        startActivity(intencion);
+
+
+    }
+
     @Override
     public void onClick(View view) {
 
@@ -160,6 +171,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botonLogin:
                 loguearUsuario();
                 break;
+            case R.id.botonCambiarPass:
+                irACambiarContrseña();
+                break;
+
         }
 
 

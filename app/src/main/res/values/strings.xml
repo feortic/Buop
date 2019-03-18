@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Buop</string>
+    <string name="app_CambiarPass">Cambiar contraseña</string>
 </resources>
