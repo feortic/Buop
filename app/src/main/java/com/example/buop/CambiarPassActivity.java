@@ -24,7 +24,7 @@ public class CambiarPassActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText etxtNewEmail;
     private EditText etxtNewPassword;
-    private EditText etxtNewName;
+
 
     @Override
     protected void onStart() {
@@ -37,7 +37,7 @@ public class CambiarPassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cambiar_pass);
 
-        etxtNewName = (EditText) findViewById(R.id.etxtNewName);
+
         etxtNewEmail = (EditText) findViewById(R.id.etxtNewEmail);
         etxtNewPassword = (EditText) findViewById(R.id.etxtNewPassword);
 
@@ -53,7 +53,7 @@ public class CambiarPassActivity extends AppCompatActivity {
                      startActivity(intent);
                      finish();
                  } else {
-                      etxtNewName.setText(user.getDisplayName());
+
                      etxtNewEmail.setText(user.getEmail());
                  }
              }
@@ -93,28 +93,7 @@ public class CambiarPassActivity extends AppCompatActivity {
         }
     }
 
-    public void updateUserProfile(View view) {
-        FirebaseUser user = mAuth.getCurrentUser();
 
-        String newName = etxtNewName.getText().toString();
-        if (TextUtils.isEmpty(newName))
-            return;
-
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName(newName)
-                //.setPhotoUri(Uri.parse("https://www.famouslogos.net/images/android-logo.jpg"))
-                .build();
-
-        user.updateProfile(profileUpdates)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(CambiarPassActivity.this, "User updated", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
 
     public void setUserEmailAddr(View view) {
         String newEmail = etxtNewEmail.getText().toString();
