@@ -49,7 +49,7 @@ public class CambiarPassActivity extends AppCompatActivity {
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                  if (user == null) {
                       Intent intent = new Intent(CambiarPassActivity.this, MainActivity.class);
-                     intent.putExtra("goToMainActivity", true);
+                     intent.putExtra("Yendo a la página principal", true);
                      startActivity(intent);
                      finish();
                  } else {
@@ -66,7 +66,7 @@ public class CambiarPassActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(CambiarPassActivity.this, "password reset email sent", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CambiarPassActivity.this, "Se ha enviado ya un correo", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -87,8 +87,8 @@ public class CambiarPassActivity extends AppCompatActivity {
                 String email = profile.getEmail();
                 Uri photoUrl = profile.getPhotoUrl();
 
-                Toast.makeText(this, "id : " + providerId + ", uid : " + uid + " name: " + name
-                        + " email : " + email + " " + photoUrl, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "id : " + providerId + ", uid : " + uid
+                        + " email : " + email, Toast.LENGTH_SHORT).show();
             };
         }
     }
@@ -106,7 +106,7 @@ public class CambiarPassActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
-                    Toast.makeText(CambiarPassActivity.this, "email updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CambiarPassActivity.this, "Email actualizado", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -123,7 +123,7 @@ public class CambiarPassActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful())
-                            Toast.makeText(CambiarPassActivity.this, "password updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CambiarPassActivity.this, "Contraseña actualizada", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -135,7 +135,7 @@ public class CambiarPassActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(CambiarPassActivity.this, "Email sent", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CambiarPassActivity.this, "Email enviado", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -147,7 +147,7 @@ public class CambiarPassActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
-                    Toast.makeText(CambiarPassActivity.this, "User deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CambiarPassActivity.this, "Usuario borrado", Toast.LENGTH_SHORT).show();
             }
         });
     }
