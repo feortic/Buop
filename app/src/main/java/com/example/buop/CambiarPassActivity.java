@@ -43,25 +43,25 @@ public class CambiarPassActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-   //     mAuthListener = new FirebaseAuth.AuthStateListener() {
-   //         @Override
-   //         public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-        //                FirebaseUser user = firebaseAuth.getCurrentUser();
-        //         if (user == null) {
-        //              Intent intent = new Intent(CambiarPassActivity.this, MainActivity.class);
-        //             intent.putExtra("goToMainActivity", true);
-        //             startActivity(intent);
-        //             finish();
-        //         } else {
-        //              etxtNewName.setText(user.getDisplayName());
-        //             etxtNewEmail.setText(user.getEmail());
-        //         }
-        //     }
-        //  };
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+           @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                 if (user == null) {
+                      Intent intent = new Intent(CambiarPassActivity.this, MainActivity.class);
+                     intent.putExtra("goToMainActivity", true);
+                     startActivity(intent);
+                     finish();
+                 } else {
+                      etxtNewName.setText(user.getDisplayName());
+                     etxtNewEmail.setText(user.getEmail());
+                 }
+             }
+          };
     }
 
     public void sendPasswordResetEmail(View view) {
-        String emailAddress = "melardev_email@email.com";
+        String emailAddress = etxtNewEmail.getText().toString();
         mAuth.sendPasswordResetEmail(emailAddress).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

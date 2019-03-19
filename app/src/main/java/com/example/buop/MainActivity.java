@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressDialog = new ProgressDialog(this);
 
-        //asociamos un oyente al evento clic del bot鏮
+        //asociamos un oyente al evento clic del boton
         btnCambiarContraseña.setOnClickListener(this);
         btnRegistrar.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
@@ -150,13 +150,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-    private  void irACambiarContrseña(){
-        Toast.makeText(MainActivity.this, "Yendo a cambiar contraseña: " , Toast.LENGTH_LONG).show();
-        Intent intencion = new Intent(getApplicationContext(), CambiarPassActivity.class);
-        startActivity(intencion);
-
-
+    public void sendPasswordResetEmail() {
+        String emailAddress = TextEmail.getText().toString();
+        firebaseAuth.sendPasswordResetEmail(emailAddress).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "password reset email sent", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -172,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 loguearUsuario();
                 break;
             case R.id.botonCambiarPass:
-                irACambiarContrseña();
+                sendPasswordResetEmail();
                 break;
 
         }

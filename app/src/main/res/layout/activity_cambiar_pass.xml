@@ -17,33 +17,19 @@ tools:context="com.melardev.tutorialsfirebase.activities.ActivityUpdateUser">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="deleteUser"
-        android:text="Delete" />
+        android:text="ELIMINAR CUENTA" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="sendPasswordResetEmail"
-        android:text="Reset Password" />
+        android:text="CAMBIAR CONTRASEÑA EMAIL" />
 
 </LinearLayout>
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <EditText
-        android:id="@+id/etxtNewName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="new Display Name" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="updateUserProfile"
-        android:text="Update" />
-</LinearLayout>
+    android:layout_height="wrap_content"/>
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -60,7 +46,7 @@ tools:context="com.melardev.tutorialsfirebase.activities.ActivityUpdateUser">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="setUserEmailAddr"
-        android:text="Update Email" />
+        android:text="ACTUALIZAR EMAIL" />
 </LinearLayout>
 
 <LinearLayout
@@ -78,23 +64,23 @@ tools:context="com.melardev.tutorialsfirebase.activities.ActivityUpdateUser">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="setUserPassword"
-        android:text="Update password" />
+        android:text="CAMBIAR CONTRASEÑA" />
 </LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="getUserProviderProfileInfo"
-        android:text="getInfo" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getUserProviderProfileInfo"
+            android:text="INFO PERFIL" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="signOut"
-        android:text="Sign Out" />
-</LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="signOut"
+            android:text="CERRAR SESIÓN" />
+    </LinearLayout>
 </LinearLayout>

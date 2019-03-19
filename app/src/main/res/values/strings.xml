@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Buop</string>
-    <string name="app_CambiarPass">Cambiar contraseña</string>
+    <string name="app_CambiarPass">¿Has olvidado la contraseña?</string>
+    <string name="app_ActualizarPerfil">Actualiza tu perfil</string>
 </resources>
